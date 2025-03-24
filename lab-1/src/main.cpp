@@ -23,7 +23,7 @@ constexpr uint32_t SERIAL_DEBUG_BAUD = 9600U;
 constexpr int16_t telemetrySendInterval = 10000U;
 constexpr int16_t printTemperatureInterval = 1500U;
 constexpr int16_t printHumidityInterval = 1000U;
-constexpr int16_t readDHT20Interval = 2000U;
+constexpr int16_t readDHT20Interval = 1000U;
 uint32_t temperature;
 uint32_t humidity;
 uint32_t previousDataSend;
@@ -80,7 +80,7 @@ void TaskTemperature(void *pvParameters) {
         previousTemperaturePrint = millis();
         Serial.print("Temperature: ");
         Serial.print(temperature, 1);
-        Serial.println(" Â°C");
+        Serial.println(" °C");
       }
       vTaskDelay(pdMS_TO_TICKS(printTemperatureInterval));  // Delay 1500ms
     }

@@ -8,3 +8,12 @@ This is a repository to track my progress while learning the experimental lab of
 - Lab 1: Temperature & Humidity Sensors
 - Lab 2: Core IoT Platform
 - Lab 3: OTA Firmware Update
+
+## Commit convention
+- `feat` – New feature
+- `fix` – Bug fix
+- `docs` – Documentation changes
+- `style` – Code formatting (no logic changes)
+- `refactor` – Code restructuring (without changing behavior)
+- `test` – Adding or fixing tests
+- `chore` – Maintenance tasks (e.g., updating dependencies)
