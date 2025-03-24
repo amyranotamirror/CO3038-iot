@@ -13,7 +13,6 @@ constexpr char WIFI_SSID[] = "Amyra";
 constexpr char WIFI_PASSWORD[] = "66666666";
 
 constexpr char TOKEN[] = "t8tby7r267y6q9pd7p85";
-
 constexpr char THINGSBOARD_SERVER[] = "app.coreiot.io";
 constexpr uint16_t THINGSBOARD_PORT = 1883U;
 
@@ -80,7 +79,7 @@ void TaskTemperature(void *pvParameters) {
         previousTemperaturePrint = millis();
         Serial.print("Temperature: ");
         Serial.print(temperature, 1);
-        Serial.println(" °C");
+        Serial.println(" Â°C");
       }
       vTaskDelay(pdMS_TO_TICKS(printTemperatureInterval));  // Delay 1500ms
     }
@@ -110,7 +109,7 @@ void TaskReadDHT20(void *pvParameters) {
     }
 }
 
-void checkConnection(void *pvParameters){
+void TaskCheckConnection(void *pvParameters){
   while(1){
     if (!reconnect()) {
       return;
@@ -132,7 +131,7 @@ void checkConnection(void *pvParameters){
   }
 }
 
-void sendData(void *pvParameters){
+void TaskSendData(void *pvParameters){
   while(1){
     if (isnan(temperature) || isnan(humidity)) {
       Serial.println("Failed to read from DHT20 sensor!");
@@ -156,8 +155,8 @@ void setup() {
     xTaskCreate(TaskTemperature, "printTemperature", 2048U, NULL, 1, &TaskPrintTemperatureHandle);
     xTaskCreate(TaskHumidity, "printHumidity", 2048U, NULL, 1, &TaskPrintHumidityHandle);
     xTaskCreate(TaskReadDHT20, "readDHT20", 2048U, NULL, 1, &TaskReadDHT20Handle);
-    xTaskCreate(checkConnection, "checkConnection", 4096U, NULL, 1, &TaskCheckConnectionHandle);
-    xTaskCreate(sendData, "sendData", 2048U, NULL, 1, &TaskSendDataHandle);
+    xTaskCreate(TaskCheckConnection, "checkConnection", 4096U, NULL, 1, &TaskCheckConnectionHandle);
+    xTaskCreate(TaskSendData, "sendData", 2048U, NULL, 1, &TaskSendDataHandle);
 }
 
 void loop() {

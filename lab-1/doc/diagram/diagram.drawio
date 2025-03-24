@@ -1,0 +1,41 @@
+<mxfile host="65bd71144e">
+    <diagram id="k3lPwjR9YEwLdU99z4BX" name="system-architecture">
+        <mxGraphModel dx="1608" dy="728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="12" value="System Architecture" style="swimlane;whiteSpace=wrap;html=1;swimlaneFillColor=light-dark(#ffffff, #ededed);" parent="1" vertex="1">
+                    <mxGeometry x="240" y="140" width="280" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;b&gt;ESP32&lt;/b&gt;&lt;div&gt;&lt;i&gt;(Read sensors&lt;/i&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;&amp;amp; Send data)&lt;/i&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="340" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;b&gt;DHT20&lt;/b&gt;&lt;div&gt;&lt;i&gt;(Temperature &amp;amp; Humidity Sensor)&lt;/i&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="440" y="400" as="sourcePoint"/>
+                        <mxPoint x="490" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="I2C" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5" vertex="1" connectable="0">
+                    <mxGeometry x="-0.6234" y="-1" relative="1" as="geometry">
+                        <mxPoint x="1" y="19" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="&lt;b&gt;Core IoT&lt;/b&gt;&lt;div&gt;&lt;i&gt;(Receive &amp;amp; Display data)&lt;/i&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="200" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;entryX=0.497;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=block;startFill=1;dashed=1;" parent="1" source="2" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="WiFi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="10" vertex="1" connectable="0">
+                    <mxGeometry x="0.207" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-1" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
